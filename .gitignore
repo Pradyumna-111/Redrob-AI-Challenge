@@ -2,6 +2,12 @@
 candidates.jsonl
 candidates.jsonl.gz
 
+# Organizer-provided binary docs kept locally, not versioned.
+README.docx
+job_description.docx
+redrob_signals_doc.docx
+submission_spec.docx
+
 # Generated scratch output.
 sample_ranked_submission.csv
 
