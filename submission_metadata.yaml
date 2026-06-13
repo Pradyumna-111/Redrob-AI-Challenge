@@ -1,0 +1,56 @@
+# Redrob Hackathon - Submission Metadata
+
+team_name: "TODO: your-team-name"
+
+primary_contact:
+  name: "TODO: Your Full Name"
+  email: "TODO: your-email@example.com"
+  phone: "TODO: +91-XXXXXXXXXX"
+
+team_members:
+  - name: "TODO: Your Full Name"
+    email: "TODO: your-email@example.com"
+    role: "ML Engineer"
+
+github_repo: "https://github.com/Pradyumna-111/Redrob-AI-Challenge"
+
+sandbox_link: "https://colab.research.google.com/drive/1inKETpmgo6F6ZinZ2OXOFrxhDlB2J-7I?usp=sharing"
+
+reproduce_command: "python redrob-ai-hackathon/rank.py --candidates candidates.jsonl --out submission.csv"
+
+compute:
+  platform: "Local Windows machine"
+  cpu_cores: 12
+  ram_gb: 16
+  python_version: "3.13.5"
+  os: "Windows"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "ChatGPT"
+  - "Codex"
+
+ai_usage_summary: |
+  Used Codex/ChatGPT to inspect the challenge files, design an offline deterministic
+  ranking approach, implement the Python ranker, generate explainable reasoning,
+  and validate the submission format. No candidate data is sent to hosted LLM APIs
+  during ranking, and the submitted ranking step uses no network access.
+
+methodology_summary: |
+  Offline deterministic ranker for the Senior AI Engineer JD. The model combines
+  title fit, production retrieval/ranking evidence, AI/search skill quality,
+  product-company domain fit, experience-band fit, Redrob behavioral availability
+  signals, location fit, and trap penalties. It avoids keyword stuffing by requiring
+  career-history evidence and down-weighting non-technical or inactive profiles with
+  superficial AI keywords. The ranking step uses only the Python standard library,
+  no network, no GPU, and completes within the challenge budget.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
