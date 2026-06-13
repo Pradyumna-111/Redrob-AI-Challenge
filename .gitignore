@@ -1,0 +1,22 @@
+# Large private challenge dataset; regenerate/download from the hackathon bundle.
+candidates.jsonl
+candidates.jsonl.gz
+
+# Generated scratch output.
+sample_ranked_submission.csv
+
+# Python caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environments.
+.venv/
+venv/
+env/
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

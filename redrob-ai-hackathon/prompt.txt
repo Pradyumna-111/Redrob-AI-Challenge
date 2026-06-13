@@ -1,0 +1,511 @@
+You are a Principal AI Engineer, Staff Backend Engineer, and Senior Product Architect.
+
+Build a complete production-ready AI-powered Candidate Intelligence and Ranking Platform for the Redrob Data & AI Challenge.
+
+The goal is to rank candidates the way an experienced recruiter would, not through keyword matching but through semantic understanding, contextual reasoning, career trajectory analysis, and explainable AI.
+
+## Tech Stack
+
+Frontend:
+
+* Next.js 15
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+
+Backend:
+
+* FastAPI
+* Python 3.12
+
+Database:
+
+* PostgreSQL
+
+Cache:
+
+* Redis
+
+Vector Database:
+
+* Qdrant
+
+AI Models:
+
+* Gemini 2.5 Flash
+* Gemini 2.5 Pro
+* Groq API (DeepSeek R1 / Llama models)
+
+Embeddings:
+
+* BAAI/bge-large-en-v1.5
+* sentence-transformers
+
+Deployment:
+
+* Docker
+* Docker Compose
+
+## Problem Statement
+
+Recruiters often miss strong candidates because keyword-based systems fail to understand context.
+
+Build an AI system that:
+
+1. Understands job descriptions.
+2. Understands resumes and candidate profiles.
+3. Understands career progression.
+4. Understands project relevance.
+5. Understands domain expertise.
+6. Understands behavioral signals.
+7. Produces a ranked shortlist of candidates.
+8. Explains every ranking decision.
+
+The system must prioritize actual fit over keyword overlap.
+
+---
+
+# Core Functional Requirements
+
+## Job Intelligence Engine
+
+Input:
+
+* Job Description
+
+Extract:
+
+* Required Skills
+* Preferred Skills
+* Responsibilities
+* Seniority Level
+* Leadership Requirements
+* Industry Domain
+* Experience Requirements
+* Behavioral Traits
+* Education Requirements
+
+Generate structured JSON output.
+
+Use Gemini for extraction.
+
+---
+
+## Resume Intelligence Engine
+
+Accept:
+
+* PDF resumes
+* DOCX resumes
+* JSON candidate profiles
+
+Extract:
+
+* Skills
+* Experience
+* Projects
+* Certifications
+* Education
+* Leadership Experience
+* Career Timeline
+* Domain Expertise
+
+Generate normalized candidate profiles.
+
+---
+
+## Candidate Understanding Layer
+
+Generate AI summaries:
+
+* Candidate Strengths
+* Candidate Weaknesses
+* Career Growth Pattern
+* Leadership Indicators
+* Technical Depth
+* Business Domain Exposure
+
+Use Gemini Flash.
+
+---
+
+## Embedding Pipeline
+
+Generate embeddings for:
+
+* Job Description
+* Candidate Summary
+* Candidate Skills
+* Candidate Projects
+* Experience History
+
+Store embeddings in Qdrant.
+
+Implement semantic retrieval.
+
+---
+
+## Hybrid Ranking Engine
+
+Build a weighted ranking system.
+
+Default weights:
+
+Semantic Similarity = 40%
+
+Skill Match = 20%
+
+Experience Match = 15%
+
+Project Relevance = 10%
+
+Domain Match = 5%
+
+Career Growth = 5%
+
+Behavioral Signals = 5%
+
+Weights must be configurable.
+
+---
+
+## Semantic Candidate Search
+
+Examples:
+
+"Find backend engineers with startup experience"
+
+"Show candidates who have built AI products"
+
+"Find candidates with leadership experience and cloud expertise"
+
+Use vector search plus LLM filtering.
+
+---
+
+## LLM Re-Ranking
+
+Top retrieved candidates should be sent to Gemini Pro.
+
+Gemini should:
+
+* Compare candidates
+* Reason over fit
+* Re-rank candidates
+* Produce final ranking scores
+
+Output:
+
+Overall Fit Score
+Confidence Score
+
+---
+
+## Explainable AI Layer
+
+For every candidate provide:
+
+Strengths
+
+Weaknesses
+
+Skill Gaps
+
+Role Fit Analysis
+
+Interview Focus Areas
+
+Hiring Recommendation
+
+Example:
+
+Overall Fit: 91%
+
+Strengths:
+
+* Strong backend architecture experience
+* Led teams of 10+ engineers
+* High semantic alignment with responsibilities
+
+Potential Gaps:
+
+* Limited AWS certifications
+
+Interview Focus:
+
+* Distributed systems
+* Leadership depth
+
+Recommendation:
+Strong Hire
+
+---
+
+## Candidate Comparison
+
+Compare any two candidates.
+
+Generate:
+
+* Side-by-side comparison
+* Strengths
+* Weaknesses
+* Recommendation
+
+---
+
+## AI Shortlist Generator
+
+Generate:
+
+Top 5 Candidates
+
+Top 10 Candidates
+
+Top 20 Candidates
+
+With explanations.
+
+---
+
+## Analytics Dashboard
+
+Show:
+
+* Candidate distribution
+* Skill distribution
+* Top skills
+* Candidate clusters
+* Hiring funnel
+* Match score histogram
+
+---
+
+## Admin Features
+
+Implement:
+
+* Authentication
+* RBAC
+* Audit Logs
+* User Management
+
+Roles:
+
+Admin
+Recruiter
+Hiring Manager
+
+---
+
+# Architecture Requirements
+
+Use clean architecture.
+
+Implement:
+
+backend/
+api/
+services/
+repositories/
+ai/
+models/
+schemas/
+workers/
+utils/
+
+frontend/
+app/
+components/
+features/
+hooks/
+lib/
+
+Create proper separation of concerns.
+
+---
+
+# AI Service Design
+
+Create modular AI services:
+
+JobUnderstandingService
+
+ResumeUnderstandingService
+
+EmbeddingService
+
+RankingService
+
+CandidateSearchService
+
+ShortlistService
+
+ExplanationService
+
+ComparisonService
+
+Each service should be independently testable.
+
+---
+
+# Database Design
+
+Generate:
+
+* Complete PostgreSQL schema
+* ER Diagram
+* Migrations
+* Indexes
+
+Tables should include:
+
+users
+
+jobs
+
+candidates
+
+candidate_experience
+
+candidate_skills
+
+candidate_projects
+
+candidate_certifications
+
+candidate_embeddings
+
+job_embeddings
+
+rankings
+
+audit_logs
+
+---
+
+# API Design
+
+Create complete REST APIs.
+
+Include:
+
+Request models
+
+Response models
+
+Validation
+
+Pagination
+
+Filtering
+
+Sorting
+
+Swagger Documentation
+
+---
+
+# Performance Requirements
+
+Support:
+
+100,000+ candidates
+
+Sub-second semantic search
+
+Efficient vector retrieval
+
+Caching using Redis
+
+Batch embedding generation
+
+Background processing
+
+---
+
+# Testing
+
+Generate:
+
+Unit Tests
+
+Integration Tests
+
+AI Service Tests
+
+API Tests
+
+Database Tests
+
+---
+
+# Deployment
+
+Provide:
+
+Dockerfiles
+
+Docker Compose
+
+Environment Variables
+
+Local Setup Guide
+
+Production Deployment Guide
+
+README
+
+---
+
+# Development Instructions
+
+Build this project incrementally.
+
+Start with:
+
+Phase 1:
+Project structure and architecture.
+
+Phase 2:
+Database schema.
+
+Phase 3:
+Backend APIs.
+
+Phase 4:
+Resume parsing.
+
+Phase 5:
+Gemini integration.
+
+Phase 6:
+Embedding pipeline.
+
+Phase 7:
+Qdrant integration.
+
+Phase 8:
+Ranking engine.
+
+Phase 9:
+Explainability layer.
+
+Phase 10:
+Frontend dashboard.
+
+Phase 11:
+Testing.
+
+Phase 12:
+Deployment.
+
+For every phase:
+
+1. Explain design decisions.
+2. Generate production-ready code.
+3. Generate folder structure.
+4. Generate necessary files.
+5. Do not skip implementation details.
+6. Do not use placeholders when implementation is possible.
+7. Continue automatically until the entire platform is completed.
